@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAUTH MarketGuru</title>
+    <link rel="icon" href="../src/assets/images/guruicon.png" type="image/png">
+    <link rel="shortcut icon" href="../src/assets/images/guruicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="description" content="OAUTH MarketGuru">
     <link rel="stylesheet" href="../src/styles/styles.css">
@@ -27,7 +29,7 @@
                     <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
                     <label for="privacy-policy">
                         Eu autorizo a coleta de informações de acordo com os nossos
-                        <a href="link-para-sua-politica-de-privacidade" target="_blank">Termos e Políticas</a>.
+                        <a href="https://termos.marketguru.com.br" target="_blank">Termos e Políticas</a>.
                     </label>
                 </div>
                 <button>Registrar</button>
@@ -44,21 +46,25 @@
                 <span>ou utilize o seu e-mail para logar</span>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Senha" />
-                <a href="#">Esqueceu sua senha?</a>
+                <a href="#" class="forgot-password">Esqueceu sua senha?</a>
                 <button>Logar</button>
             </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
+                    <img class="overlay-panel-logo" src="../src/assets/images/icon.png" alt="MarketGuru Logo" class="logo" width="30px">
                     <h1>Bem vindo(a) de volta!</h1>
                     <p>Para continuar, faca o login com suas informações registradas.</p>
                     <button class="ghost" id="signIn">Logar</button>
+                    <p class="overlay-panel-copyright">&copy;2024 MarketGuru. Todos os direitos reservados.</p>
                 </div>
                 <div class="overlay-panel overlay-right">
+                    <img class="overlay-panel-logo" src="../src/assets/images/icon.png" alt="MarketGuru Logo" class="logo" width="30px">
                     <h1>Olá, seja bem vindo(a)!</h1>
                     <p>Preencha suas informações para começar sua jornada conosco.</p>
                     <button class="ghost" id="signUp">Registrar</button>
+                    <p class="overlay-panel-copyright">&copy;2024 MarketGuru. Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAUTH MarketGuru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="OAUTH MarketGuru">
+    <link rel="stylesheet" href="../src/styles/styles.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crie sua conta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>ou utilize o seu e-mail para se registrar</span>
+                <input type="text" placeholder="Nome" />
+                <input type="text" placeholder="Sobrenome" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Senha" />
+                <div class="checkbox-container">
+                    <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                    <label for="privacy-policy">
+                        Eu autorizo a coleta de informações de acordo com os nossos
+                        <a href="link-para-sua-politica-de-privacidade" target="_blank">Termos e Políticas</a>.
+                    </label>
+                </div>
+                <button>Registrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Fazer login</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>ou utilize o seu e-mail para logar</span>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Senha" />
+                <a href="#">Esqueceu sua senha?</a>
+                <button>Logar</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bem vindo(a) de volta!</h1>
+                    <p>Para continuar, faca o login com suas informações registradas.</p>
+                    <button class="ghost" id="signIn">Logar</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Olá, seja bem vindo(a)!</h1>
+                    <p>Preencha suas informações para começar sua jornada conosco.</p>
+                    <button class="ghost" id="signUp">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../src/scripts/main.js"></script>
+</body>
+</html>

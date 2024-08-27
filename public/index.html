@@ -9,6 +9,346 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="description" content="MarketGuru Autenticações">
     <link rel="stylesheet" href="../src/styles/styles.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+/* Estilos globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.overlay-panel-logo {
+    width: 30px;
+    height: auto;
+    padding-bottom: 60px;
+}
+
+.overlay-panel-copyright {
+    padding-top: 20dvh;
+    font-size: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; /* Ajuste conforme o seu layout */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 900px;
+    max-width: 100%;
+    min-height: 480px;
+    background: #fff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Centraliza verticalmente */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    width: 100%;
+    max-width: 500px; /* Ajuste de acordo com a largura que deseja */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 20px; /* Margem interna para evitar cortes */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+.form-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-container button:hover {
+    background-color: #c0392b;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+    transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: linear-gradient(to right, #D92B04, #eb4e2a);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+form {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #D92B04;
+    background-color: #D92B04;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+form button:hover {
+    transform: scale(1.05);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    color: #D92B04;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.social-container a:hover {
+    background-color: #D92B04;
+    color: #fff;
+    border-color: #D92B04;
+}
+
+.checkbox-container {
+    margin: 15px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-container a {
+    color: #0072ff;
+    text-decoration: none;
+}
+
+.checkbox-container a:hover {
+    text-decoration: underline;
+}
+
+.checkbox-container label {
+    word-wrap: break-word;
+    max-width: 100%; /* Garante que o texto respeite o espaço do formulário */
+    padding: 5px 0;
+}
+
+.forgot-password {
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+    color: #0072ff;
+    text-decoration: none;
+    margin-top: 5px; /* Ajusta o espaço entre o campo de senha e o link */
+    margin-bottom: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline; /* Efeito ao passar o mouse */
+}
+
+.overlay-container h1,p {
+   padding-bottom: 10px;
+   
+}
+
+/* Ajuste adicional para garantir que o layout não quebre em telas menores */
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 90%; /* Reduz a largura para dispositivos menores */
+        padding: 15px;
+    }
+
+    .form-container h1 {
+        font-size: 20px;
+    }
+
+    .form-container button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+    margin-top: auto; 
+}
+
+footer p {
+    margin: 0;
+}
+    </style>
 </head>
 <body>
     <div class="container" id="container">
@@ -69,6 +409,29 @@
             </div>
         </div>
     </div>
-    <script src="../src/scripts/main.js"></script>
+    <script>
+        const signInButton = document.getElementById('signIn');
+const signUpButton = document.getElementById('signUp');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+    container.classList.add('right-panel-active');
+});
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove('right-panel-active');
+});
+
+const form = document.querySelector('form');
+const checkbox = document.getElementById('privacy-policy');
+
+form.addEventListener('submit', (event) => {
+    if (!checkbox.checked) {
+        event.preventDefault();
+        alert('Você deve autorizar a coleta de informações para continuar.');
+    }
+});
+
+    </script>
 </body>
 </html>
